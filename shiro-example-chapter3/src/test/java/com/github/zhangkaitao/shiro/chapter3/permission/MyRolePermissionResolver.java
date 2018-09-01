@@ -13,6 +13,9 @@ import java.util.Collection;
  * <p>Version: 1.0
  */
 public class MyRolePermissionResolver implements RolePermissionResolver {
+
+
+
     @Override
     public Collection<Permission> resolvePermissionsInRole(String roleString) {
         if("role1".equals(roleString)) {

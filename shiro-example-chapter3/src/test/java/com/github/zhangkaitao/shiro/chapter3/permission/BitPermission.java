@@ -27,6 +27,14 @@ import org.apache.shiro.authz.Permission;
  */
 public class BitPermission implements Permission {
 
+
+
+//    BitPermission用于实现位移方式的权限，如规则是：
+//    权限字符串格式：+资源字符串+权限位+实例ID；以+开头中间通过+分割；
+//    权限：0 表示所有权限；1 新增（二进制：0001）、2 修改（二进制：0010）、4 删除（二进制：0100）、8 查看（二进制：1000）；
+//    如 +user+10 表示对资源user拥有修改/查看权限。
+//
+
     private String resourceIdentify;
     private int permissionBit;
     private String instanceId;

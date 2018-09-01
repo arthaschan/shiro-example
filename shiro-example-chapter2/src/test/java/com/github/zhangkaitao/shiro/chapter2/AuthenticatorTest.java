@@ -26,6 +26,7 @@ import org.junit.Test;
 public class AuthenticatorTest {
 
     @Test
+    //所有Realm验证成功才算成功，且返回所有Realm身份验证成功的认证信息，如果有一个失败就失败了。
     public void testAllSuccessfulStrategyWithSuccess() {
         login("classpath:shiro-authenticator-all-success.ini");
         Subject subject = SecurityUtils.getSubject();
@@ -51,6 +52,7 @@ public class AuthenticatorTest {
     }
 
     @Test
+    //只要有一个Realm验证成功即可，只返回第一个Realm身份验证成功的认证信息，其他的忽略；
     public void testFirstOneSuccessfulStrategyWithSuccess() {
         login("classpath:shiro-authenticator-first-success.ini");
         Subject subject = SecurityUtils.getSubject();
@@ -61,6 +63,7 @@ public class AuthenticatorTest {
     }
 
     @Test
+    //只要有一个Realm验证成功即可，和FirstSuccessfulStrategy不同，返回所有Realm身份验证成功的认证信息；
     public void testAtLeastTwoStrategyWithSuccess() {
         login("classpath:shiro-authenticator-atLeastTwo-success.ini");
         Subject subject = SecurityUtils.getSubject();
@@ -71,6 +74,7 @@ public class AuthenticatorTest {
     }
 
     @Test
+
     public void testOnlyOneStrategyWithSuccess() {
         login("classpath:shiro-authenticator-onlyone-success.ini");
         Subject subject = SecurityUtils.getSubject();
